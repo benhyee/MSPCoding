@@ -15,7 +15,6 @@ void SPI_init(){
     CS->KEY = 0;
 
     // Configure port bits for SPI
-    P4->DIR |= BIT1;                     // Will use BIT4 to activate /CE on the DAC
     P1SEL0 |= BIT6 + BIT5;               // Configure P1.6 and P1.5 for UCB0SIMO and UCB0CLK
     P1SEL1 &= ~(BIT6 + BIT5);            //
 
@@ -25,7 +24,7 @@ void SPI_init(){
     EUSCI_B0->CTLW0 = EUSCI_B_CTLW0_SWRST |   // Remain eUSCI state machine in reset
                     EUSCI_B_CTLW0_MST   |   // Set as SPI master
                     EUSCI_B_CTLW0_SYNC  |   // Set as synchronous mode
-                    EUSCI_B_CTLW0_CKPL  |   // Set clock polarity high
+//                    EUSCI_B_CTLW0_CKPL  |   // Set clock polarity high
                     EUSCI_B_CTLW0_MSB;      // MSB first
 
     EUSCI_B0->CTLW0 |= EUSCI_B_CTLW0_SSEL__SMCLK; // SMCLK

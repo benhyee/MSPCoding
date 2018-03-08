@@ -9,7 +9,7 @@ CMD_SRCS += \
 ../msp432p401r.cmd 
 
 C_SRCS += \
-../I2CProtocol.c \
+../UART.c \
 ../dacFuncs.c \
 ../delay.c \
 ../main.c \
@@ -18,7 +18,7 @@ C_SRCS += \
 ../system_msp432p401r.c 
 
 C_DEPS += \
-./I2CProtocol.d \
+./UART.d \
 ./dacFuncs.d \
 ./delay.d \
 ./main.d \
@@ -27,7 +27,7 @@ C_DEPS += \
 ./system_msp432p401r.d 
 
 OBJS += \
-./I2CProtocol.obj \
+./UART.obj \
 ./dacFuncs.obj \
 ./delay.obj \
 ./main.obj \
@@ -36,7 +36,7 @@ OBJS += \
 ./system_msp432p401r.obj 
 
 OBJS__QUOTED += \
-"I2CProtocol.obj" \
+"UART.obj" \
 "dacFuncs.obj" \
 "delay.obj" \
 "main.obj" \
@@ -45,7 +45,7 @@ OBJS__QUOTED += \
 "system_msp432p401r.obj" 
 
 C_DEPS__QUOTED += \
-"I2CProtocol.d" \
+"UART.d" \
 "dacFuncs.d" \
 "delay.d" \
 "main.d" \
@@ -54,7 +54,7 @@ C_DEPS__QUOTED += \
 "system_msp432p401r.d" 
 
 C_SRCS__QUOTED += \
-"../I2CProtocol.c" \
+"../UART.c" \
 "../dacFuncs.c" \
 "../delay.c" \
 "../main.c" \

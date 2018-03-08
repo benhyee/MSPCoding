@@ -8,25 +8,53 @@
 
 #include "msp.h"
 #include "spi.h"
+#include <math.h>
+#define FALSE 0
+#define TRUE 1
 
-void Drive_DAC(unsigned int level){
+void Drive_DAC(unsigned int level, unsigned int channel, unsigned int toggle){
   unsigned int DAC_Word = 0;
 
-  DAC_Word =level & 0x00FF;   // 0x1000 sets DAC for Write
-                                            // to DAC, Gain = 2, /SHDN = 1
-                                            // and put 12-bit level value
-                                            // in low 12 bits.
+  if(toggle == FALSE)
+  {
+      DAC_Word =level | 0x8300;
+  }
+  else if(toggle == TRUE)
+  {
+      DAC_Word =level | 0x8700;
+  }
+  else{
+      DAC_Word = 0;
+  }
 
-  DAC_Word =level | 0x0300;
-
+  P5 -> OUT |= channel;
+  P5 -> OUT &= ~channel;
 
   EUSCI_B0->TXBUF = (unsigned char) (DAC_Word >> 8);  // Shift upper byte of DAC_Word
                                                       // 8-bits to right
-
   while (!(EUSCI_B0->IFG & EUSCI_B_IFG_TXIFG));              // USCI_A0 TX buffer ready?
   EUSCI_B0->TXBUF = (unsigned char) (DAC_Word & 0x00FF);  // Transmit lower byte to DAC
   while (!(EUSCI_B0->IFG & EUSCI_B_IFG_TXIFG));      // Poll the TX flag to wait for completion
 
 
+  P5 -> OUT |= channel;
+  P5 -> OUT &= ~channel;
+
   return;
+}
+
+int *computeSin()
+{
+    static int sinewave[10];
+    double radians = 2.0 * 3.1415926;
+    double step = radians / 10.0;
+    double value = 0;
+    int i;
+
+    for (i = 0; i < 10; i++)
+    {
+        sinewave[i] = 128 + (128 * sin(value));//
+        value += step;
+    }
+    return sinewave;
 }

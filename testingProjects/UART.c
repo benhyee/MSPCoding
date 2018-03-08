@@ -1,8 +1,9 @@
 #include <string.h>
-#include <terminal.h>
-#include "globals.h"
+#include <UART.h>
 #include "msp.h"
 
+#define FALSE 0
+#define TRUE 1
 //counts the number of bytes read into the buffer
 char readCount = 0;
 

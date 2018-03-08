@@ -10,7 +10,7 @@ GEN_OPTS__FLAG :=
 GEN_CMDS__FLAG := 
 
 ORDERED_OBJS += \
-"./I2CProtocol.obj" \
+"./UART.obj" \
 "./dacFuncs.obj" \
 "./delay.obj" \
 "./main.obj" \
@@ -160,8 +160,8 @@ testingProjects.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "I2CProtocol.obj" "dacFuncs.obj" "delay.obj" "main.obj" "spi.obj" "startup_msp432p401r_ccs.obj" "system_msp432p401r.obj" 
-	-$(RM) "I2CProtocol.d" "dacFuncs.d" "delay.d" "main.d" "spi.d" "startup_msp432p401r_ccs.d" "system_msp432p401r.d" 
+	-$(RM) "UART.obj" "dacFuncs.obj" "delay.obj" "main.obj" "spi.obj" "startup_msp432p401r_ccs.obj" "system_msp432p401r.obj" 
+	-$(RM) "UART.d" "dacFuncs.d" "delay.d" "main.d" "spi.d" "startup_msp432p401r_ccs.d" "system_msp432p401r.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

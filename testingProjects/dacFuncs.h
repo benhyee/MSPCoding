@@ -9,7 +9,9 @@
 #define DACFUNCS_H_
 
 
-void Drive_DAC(unsigned int level);
+void Drive_DAC(unsigned int level, unsigned int channel, unsigned int toggle);
+int *computeSin();
+
 
 
 #endif /* DACFUNCS_H_ */
