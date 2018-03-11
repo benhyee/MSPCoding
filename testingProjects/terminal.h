@@ -5,8 +5,8 @@
  *      Author: Ben Yee
  */
 
-#ifndef UART_H_
-#define UART_H_
+#ifndef TERMINAL_H_
+#define TERMINAL_H_
 
 
 void terminal_init();
@@ -18,4 +18,4 @@ char terminal_receiveChar();
 int terminal_receiveInt();
 
 
-#endif /* UART_H_ */
+#endif /* TERMINAL_H_ */

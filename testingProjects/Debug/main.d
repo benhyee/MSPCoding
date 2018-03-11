@@ -14,7 +14,7 @@ main.obj: ../delay.h
 main.obj: ../spi.h
 main.obj: ../dacFuncs.h
 main.obj: ../timer.h
-main.obj: ../UART.h
+main.obj: ../terminal.h
 
 ../main.c: 
 C:/ti/ccsv7/ccs_base/arm/include/msp.h: 
@@ -30,4 +30,4 @@ C:/ti/ccsv7/ccs_base/arm/include/system_msp432p401r.h:
 ../spi.h: 
 ../dacFuncs.h: 
 ../timer.h: 
-../UART.h: 
+../terminal.h: 

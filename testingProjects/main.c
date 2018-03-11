@@ -3,7 +3,8 @@
 #include "spi.h"
 #include "dacFuncs.h"
 #include "timer.h"
-#include "UART.h"
+#include "terminal.h"
+
 #define CURRENT_FREQ FREQ_24_MHZ
 #define SLAVE_ADDR 0x68
 

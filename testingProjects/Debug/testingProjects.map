@@ -1,7 +1,7 @@
 ******************************************************************************
                   TI ARM Linker PC v16.9.6                     
 ******************************************************************************
->> Linked Sun Mar 11 12:17:39 2018
+>> Linked Sun Mar 11 14:42:30 2018
 
 OUTPUT FILE NAME:   <testingProjects.out>
 ENTRY POINT SYMBOL: "_c_int00"  address: 000023ed
@@ -47,7 +47,7 @@ section   page    origin      length       input sections
                   000000e4    00000738     rtsv7M4_T_le_v4SPD16_eabi.lib : k_rem_pio2.obj (.text)
                   0000081c    000005c4                                   : s_sin.obj (.text)
                   00000de0    00000334     system_msp432p401r.obj (.text)
-                  00001114    00000320     UART.obj (.text)
+                  00001114    00000320     terminal.obj (.text)
                   00001434    000001b6     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_add_t2.obj (.text)
                   000015ea    00000002                                   : mpu_init.obj (.text)
                   000015ec    00000174                                   : k_sin.obj (.text)
@@ -110,7 +110,7 @@ section   page    origin      length       input sections
                   200000e8    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : errno.obj (.data)
                   200000ec    00000004                                   : stkdepth_vars.obj (.data)
                   200000f0    00000004     system_msp432p401r.obj (.data)
-                  200000f4    00000001     UART.obj (.data)
+                  200000f4    00000001     terminal.obj (.data)
 
 .stack     0    2000fe00    00000200     UNINITIALIZED
                   2000fe00    00000200     --HOLE--
@@ -121,7 +121,7 @@ MODULE SUMMARY
        ------                        ----   -------   -------
     .\
        system_msp432p401r.obj        820    0         8      
-       UART.obj                      800    0         12     
+       terminal.obj                  800    0         12     
        dacFuncs.obj                  312    0         400    
        startup_msp432p401r_ccs.obj   14     228       0      
        main.obj                      220    0         8      
@@ -205,8 +205,8 @@ address   name
 000025c7  DebugMon_Handler               
 000025c7  Default_Handler                
 000018cd  Drive_DAC                      
-0000138b  EUSCIA0_IRQHandler             
-0000138b  EUSCIA0_IRQHandler             
+00001389  EUSCIA0_IRQHandler             
+00001389  EUSCIA0_IRQHandler             
 000025c7  EUSCIA1_IRQHandler             
 000025c7  EUSCIA2_IRQHandler             
 000025c7  EUSCIA3_IRQHandler             
@@ -332,11 +332,11 @@ ffffffff  binit
 0000081d  sinl                           
 00002599  strlen                         
 0000117f  terminal_init                  
-00001369  terminal_receiveInt            
-000011cd  terminal_transmitChar          
-00001293  terminal_transmitDouble        
-00001211  terminal_transmitInt           
-000011e9  terminal_transmitWord          
+00001367  terminal_receiveInt            
+000011cb  terminal_transmitChar          
+00001291  terminal_transmitDouble        
+0000120f  terminal_transmitInt           
+000011e7  terminal_transmitWord          
 200000c8  terminalbuffer                 
 200000cc  terminalbufferReady            
 00002219  timer_init                     
@@ -355,13 +355,13 @@ address   name
 00000de1  SystemCoreClockUpdate          
 00001059  SystemInit                     
 0000117f  terminal_init                  
-000011cd  terminal_transmitChar          
-000011e9  terminal_transmitWord          
-00001211  terminal_transmitInt           
-00001293  terminal_transmitDouble        
-00001369  terminal_receiveInt            
-0000138b  EUSCIA0_IRQHandler             
-0000138b  EUSCIA0_IRQHandler             
+000011cb  terminal_transmitChar          
+000011e7  terminal_transmitWord          
+0000120f  terminal_transmitInt           
+00001291  terminal_transmitDouble        
+00001367  terminal_receiveInt            
+00001389  EUSCIA0_IRQHandler             
+00001389  EUSCIA0_IRQHandler             
 00001435  __aeabi_dsub                   
 0000143f  __aeabi_dadd                   
 000015eb  __mpu_init                     

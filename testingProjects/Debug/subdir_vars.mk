@@ -9,63 +9,63 @@ CMD_SRCS += \
 ../msp432p401r.cmd 
 
 C_SRCS += \
-../UART.c \
 ../dacFuncs.c \
 ../delay.c \
 ../main.c \
 ../spi.c \
 ../startup_msp432p401r_ccs.c \
 ../system_msp432p401r.c \
+../terminal.c \
 ../timer.c 
 
 C_DEPS += \
-./UART.d \
 ./dacFuncs.d \
 ./delay.d \
 ./main.d \
 ./spi.d \
 ./startup_msp432p401r_ccs.d \
 ./system_msp432p401r.d \
+./terminal.d \
 ./timer.d 
 
 OBJS += \
-./UART.obj \
 ./dacFuncs.obj \
 ./delay.obj \
 ./main.obj \
 ./spi.obj \
 ./startup_msp432p401r_ccs.obj \
 ./system_msp432p401r.obj \
+./terminal.obj \
 ./timer.obj 
 
 OBJS__QUOTED += \
-"UART.obj" \
 "dacFuncs.obj" \
 "delay.obj" \
 "main.obj" \
 "spi.obj" \
 "startup_msp432p401r_ccs.obj" \
 "system_msp432p401r.obj" \
+"terminal.obj" \
 "timer.obj" 
 
 C_DEPS__QUOTED += \
-"UART.d" \
 "dacFuncs.d" \
 "delay.d" \
 "main.d" \
 "spi.d" \
 "startup_msp432p401r_ccs.d" \
 "system_msp432p401r.d" \
+"terminal.d" \
 "timer.d" 
 
 C_SRCS__QUOTED += \
-"../UART.c" \
 "../dacFuncs.c" \
 "../delay.c" \
 "../main.c" \
 "../spi.c" \
 "../startup_msp432p401r_ccs.c" \
 "../system_msp432p401r.c" \
+"../terminal.c" \
 "../timer.c" 
 
 
