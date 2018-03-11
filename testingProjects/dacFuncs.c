@@ -45,13 +45,13 @@ void Drive_DAC(unsigned int level, unsigned int channel, unsigned int toggle){
 
 int *computeSin()
 {
-    static int sinewave[10];
+    static int sinewave[50];
     double radians = 2.0 * 3.1415926;
-    double step = radians / 10.0;
+    double step = radians / 50.0;
     double value = 0;
     int i;
 
-    for (i = 0; i < 10; i++)
+    for (i = 0; i < 50; i++)
     {
         sinewave[i] = 128 + (128 * sin(value));//
         value += step;

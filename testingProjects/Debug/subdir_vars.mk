@@ -15,7 +15,8 @@ C_SRCS += \
 ../main.c \
 ../spi.c \
 ../startup_msp432p401r_ccs.c \
-../system_msp432p401r.c 
+../system_msp432p401r.c \
+../timer.c 
 
 C_DEPS += \
 ./UART.d \
@@ -24,7 +25,8 @@ C_DEPS += \
 ./main.d \
 ./spi.d \
 ./startup_msp432p401r_ccs.d \
-./system_msp432p401r.d 
+./system_msp432p401r.d \
+./timer.d 
 
 OBJS += \
 ./UART.obj \
@@ -33,7 +35,8 @@ OBJS += \
 ./main.obj \
 ./spi.obj \
 ./startup_msp432p401r_ccs.obj \
-./system_msp432p401r.obj 
+./system_msp432p401r.obj \
+./timer.obj 
 
 OBJS__QUOTED += \
 "UART.obj" \
@@ -42,7 +45,8 @@ OBJS__QUOTED += \
 "main.obj" \
 "spi.obj" \
 "startup_msp432p401r_ccs.obj" \
-"system_msp432p401r.obj" 
+"system_msp432p401r.obj" \
+"timer.obj" 
 
 C_DEPS__QUOTED += \
 "UART.d" \
@@ -51,7 +55,8 @@ C_DEPS__QUOTED += \
 "main.d" \
 "spi.d" \
 "startup_msp432p401r_ccs.d" \
-"system_msp432p401r.d" 
+"system_msp432p401r.d" \
+"timer.d" 
 
 C_SRCS__QUOTED += \
 "../UART.c" \
@@ -60,6 +65,7 @@ C_SRCS__QUOTED += \
 "../main.c" \
 "../spi.c" \
 "../startup_msp432p401r_ccs.c" \
-"../system_msp432p401r.c" 
+"../system_msp432p401r.c" \
+"../timer.c" 
 
 
