@@ -28,9 +28,9 @@ void main(void)
 	int *sinePoint;
     sinePoint = computeSin();
 
-    __enable_irq();
+    //__enable_irq();
 	while(1){
-	    terminal_transmitWord("Work?");
+        terminal_transmitChar('A');
         for(step = 0; step< 50; step++)
         {
           TempDAC_Value = *(sinePoint + step);

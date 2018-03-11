@@ -14,12 +14,12 @@ void terminal_init()
 {
     EUSCI_A0->CTLW0 |= 1;
     EUSCI_A0->MCTLW = 0;
-    EUSCI_A0->CTLW0 = 0x0081;       //SMCLK 12 MHz
-    EUSCI_A0->BRW = 26;           // BRW = CLOCK / Baud Rate
+    EUSCI_A0->CTLW0 = 0x0081;       //SMCLK 3 MHz
+    EUSCI_A0->BRW = 26;           // BRW = CLOCK / Baud Rate 3,000,000/115200 = 26
     P1->SEL0 |= 0x0C;
     P1->SEL1 &= ~0x0C;
-    EUSCI_A0->CTLW0 &= ~1;
     EUSCI_A0->IE |= 1;
+    EUSCI_A0->CTLW0 &= ~1;
 
     NVIC_SetPriority(EUSCIA0_IRQn, 4);
     NVIC_EnableIRQ(EUSCIA0_IRQn);
