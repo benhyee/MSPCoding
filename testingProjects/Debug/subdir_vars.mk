@@ -10,6 +10,7 @@ CMD_SRCS += \
 
 C_SRCS += \
 ../dacFuncs.c \
+../dataRX.c \
 ../delay.c \
 ../main.c \
 ../spi.c \
@@ -20,6 +21,7 @@ C_SRCS += \
 
 C_DEPS += \
 ./dacFuncs.d \
+./dataRX.d \
 ./delay.d \
 ./main.d \
 ./spi.d \
@@ -30,6 +32,7 @@ C_DEPS += \
 
 OBJS += \
 ./dacFuncs.obj \
+./dataRX.obj \
 ./delay.obj \
 ./main.obj \
 ./spi.obj \
@@ -40,6 +43,7 @@ OBJS += \
 
 OBJS__QUOTED += \
 "dacFuncs.obj" \
+"dataRX.obj" \
 "delay.obj" \
 "main.obj" \
 "spi.obj" \
@@ -50,6 +54,7 @@ OBJS__QUOTED += \
 
 C_DEPS__QUOTED += \
 "dacFuncs.d" \
+"dataRX.d" \
 "delay.d" \
 "main.d" \
 "spi.d" \
@@ -60,6 +65,7 @@ C_DEPS__QUOTED += \
 
 C_SRCS__QUOTED += \
 "../dacFuncs.c" \
+"../dataRX.c" \
 "../delay.c" \
 "../main.c" \
 "../spi.c" \

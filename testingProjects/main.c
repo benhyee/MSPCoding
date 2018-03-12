@@ -4,6 +4,7 @@
 #include "dacFuncs.h"
 #include "timer.h"
 #include "terminal.h"
+#include "dataRX.h"
 
 #define CURRENT_FREQ FREQ_24_MHZ
 #define SLAVE_ADDR 0x68
@@ -21,6 +22,7 @@ void main(void)
 	set_DCO(CURRENT_FREQ);
 	SPI_init();
 	terminal_init();
+	dataRX_init();
 //    timer_init();
 	P5->SEL1 &= ~0xFF;
 	P5->SEL0 &= ~0xFF;
