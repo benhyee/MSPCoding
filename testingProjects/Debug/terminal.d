@@ -3,7 +3,7 @@
 terminal.obj: ../terminal.c
 terminal.obj: C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.6.LTS/include/string.h
 terminal.obj: C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.6.LTS/include/linkage.h
-terminal.obj: ../terminal.h
+terminal.obj: C:/Users/Ben\ Yee/Documents/codingProjects/testingProjects/terminal.h
 terminal.obj: C:/ti/ccsv7/ccs_base/arm/include/msp.h
 terminal.obj: C:/ti/ccsv7/ccs_base/arm/include/msp432p401r.h
 terminal.obj: C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.6.LTS/include/stdint.h
@@ -17,7 +17,7 @@ terminal.obj: C:/ti/ccsv7/ccs_base/arm/include/system_msp432p401r.h
 ../terminal.c: 
 C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.6.LTS/include/string.h: 
 C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.6.LTS/include/linkage.h: 
-../terminal.h: 
+C:/Users/Ben\ Yee/Documents/codingProjects/testingProjects/terminal.h: 
 C:/ti/ccsv7/ccs_base/arm/include/msp.h: 
 C:/ti/ccsv7/ccs_base/arm/include/msp432p401r.h: 
 C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.6.LTS/include/stdint.h: 

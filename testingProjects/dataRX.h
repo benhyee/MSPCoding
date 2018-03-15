@@ -9,7 +9,7 @@
 #define DATARX_H_
 
 void dataRX_init();
-void RX_Char();
+char RX_Char();
 void TX_Char(char character);
 
 

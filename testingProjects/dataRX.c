@@ -21,10 +21,11 @@ void dataRX_init()
     EUSCI_A2 -> CTLW0 &= ~1;
 }
 
-void RX_Char()
+char RX_Char()
 {
     while(!(EUSCI_A2 ->IFG & 0x01)){}
     RXCharbuffer = EUSCI_A2 -> RXBUF;
+    return RXCharbuffer;
 }
 void TX_Char(char character)
 {
