@@ -26,9 +26,9 @@ void main(void)
     NVIC_SetPriority(EUSCIA0_IRQn, 4);
     NVIC_EnableIRQ(EUSCIA0_IRQn);
     __enable_irq();
-    int dacBuffer[9];
-
+    unsigned int dacBuffer[23];
 //	int step;
+    int i;
 //	int *sinePoint;
 //    sinePoint = computeSin();
 	while(1){
@@ -36,20 +36,35 @@ void main(void)
 	    {
 	        dacBuffer[itemCount] = terminal_receiveInt();
 	        itemCount++;
-	        if(itemCount > 8)
+	        if(itemCount > 22)
 	        {
-//	            Drive_DAC(dacBuffer[1],0x01,FALSE);
-//                Drive_DAC(dacBuffer[2],0x01,TRUE);
-//                Drive_DAC(dacBuffer[3],0x02,FALSE);
-//                Drive_DAC(dacBuffer[4],0x02,TRUE);
-//                Drive_DAC(dacBuffer[5],0x04,FALSE);
-//                Drive_DAC(dacBuffer[6],0x04,TRUE);
-//                Drive_DAC(dacBuffer[7],0x10,FALSE);
-//                Drive_DAC(dacBuffer[8],0x10,TRUE);
+	            for( i = 1; i < 15; i++)
+	            {
+	                Drive_DAC(*(dacBuffer + i),1,FALSE);
+
+	            }
                 itemCount = 0;
 	        }
 	    }
 
-//        Drive_DAC(TempDAC_Value,0x10,TRUE);
+//            TempDAC_Value = 255;
+//            Drive_DAC(TempDAC_Value,1,FALSE);
+//            Drive_DAC(TempDAC_Value,1,TRUE);
+//            Drive_DAC(TempDAC_Value,2,FALSE);
+//            Drive_DAC(TempDAC_Value,2,TRUE);
+//            Drive_DAC(TempDAC_Value,0x04,FALSE);
+//            Drive_DAC(TempDAC_Value,0x04,TRUE);
+//            Drive_DAC(TempDAC_Value,0x10,FALSE);
+//            Drive_DAC(TempDAC_Value,0x10,TRUE);
+//            TempDAC_Value = 0;
+//            Drive_DAC(TempDAC_Value,1,FALSE);
+//            Drive_DAC(TempDAC_Value,1,TRUE);
+//            Drive_DAC(TempDAC_Value,2,FALSE);
+//            Drive_DAC(TempDAC_Value,2,TRUE);
+//            Drive_DAC(TempDAC_Value,0x04,FALSE);
+//            Drive_DAC(TempDAC_Value,0x04,TRUE);
+//            Drive_DAC(TempDAC_Value,0x10,FALSE);
+//            Drive_DAC(TempDAC_Value,0x10,TRUE);
+
 	}
 }

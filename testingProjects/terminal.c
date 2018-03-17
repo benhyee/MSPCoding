@@ -65,7 +65,6 @@ void terminal_transmitDouble(double input)
 
 }
 
-
 int terminal_receiveInt()
 {
     int result = terminalbuffer;
