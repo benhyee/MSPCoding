@@ -5,8 +5,7 @@
 #define TRUE 1
 
 //counts the number of bytes read into the buffer
-char readCount = 0;
-
+int readCount = 0;
 char terminalbufferReady;
 int  terminalbuffer;
 
@@ -72,26 +71,27 @@ int terminal_receiveInt()
     int result = terminalbuffer;
     terminalbuffer = 0;
     terminalbufferReady = FALSE;
-    readCount = 0;
     return result;
 }
+
 
 void EUSCIA0_IRQHandler()
 {
     int result = EUSCI_A0->RXBUF;
     terminal_transmitChar((char)result);
-
-    if (result == 13)
+    if(result == 91 || result == 44)
     {
         terminalbufferReady = TRUE;
         return;
     }
-    if (result < 48 || result > 57)
+
+
+    if(result<48 || result > 57)
     {
         return;
     }
 
+
     terminalbuffer = (terminalbuffer * 10) + (result - 48);
 
-    readCount++;
 }
