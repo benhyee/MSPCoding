@@ -12,8 +12,12 @@
 #define FALSE 0
 #define TRUE 1
 
-void Drive_DAC(unsigned int level, unsigned int channel, unsigned int toggle){
+void Drive_DAC(unsigned char level, unsigned int channel, unsigned int toggle){
   unsigned int DAC_Word = 0;
+  if(level > 256)
+  {
+      return;
+  }
 
   if(toggle == FALSE)
   {

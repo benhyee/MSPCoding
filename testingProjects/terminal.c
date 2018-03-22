@@ -67,7 +67,7 @@ void terminal_transmitDouble(double input)
 
 int terminal_receiveInt()
 {
-    int result = terminalbuffer;
+    char result = terminalbuffer;
     terminalbuffer = 0;
     terminalbufferReady = FALSE;
     return result;
@@ -76,7 +76,7 @@ int terminal_receiveInt()
 
 void EUSCIA0_IRQHandler()
 {
-    int result = EUSCI_A0->RXBUF;
+    unsigned int result = EUSCI_A0->RXBUF;
     terminal_transmitChar((char)result);
     if(result == 91 || result == 44)
     {

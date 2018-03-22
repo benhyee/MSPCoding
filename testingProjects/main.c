@@ -12,7 +12,7 @@
 #define TRUE 1
 
 volatile unsigned int TempDAC_Value = 0;
-int itemCount;
+unsigned int itemCount;
 
 void main(void)
 {
@@ -26,45 +26,47 @@ void main(void)
     NVIC_SetPriority(EUSCIA0_IRQn, 4);
     NVIC_EnableIRQ(EUSCIA0_IRQn);
     __enable_irq();
-    unsigned int dacBuffer[23];
+    unsigned char dacBuffer[65000];
+
+    unsigned int i = 0;
 //	int step;
-    int i;
 //	int *sinePoint;
 //    sinePoint = computeSin();
 	while(1){
 	    if(terminalbufferReady == TRUE)
 	    {
-	        dacBuffer[itemCount] = terminal_receiveInt();
+	        *(dacBuffer + itemCount) = terminal_receiveInt();
 	        itemCount++;
-	        if(itemCount > 22)
+	        if(itemCount > 65000)
 	        {
-	            for( i = 1; i < 15; i++)
+	            for(i = 1; i < 8124; i ++)
 	            {
-	                Drive_DAC(*(dacBuffer + i),1,FALSE);
-
+                    Drive_DAC(*(dacBuffer + 8*(i-1)),1,FALSE);
+                    Drive_DAC(*(dacBuffer + 8*(i-1)+1),1,FALSE);
+                    Drive_DAC(*(dacBuffer + 8*(i-1)+2),1,TRUE);
+                    Drive_DAC(*(dacBuffer + 8*(i-1)+3),2,FALSE);
+                    Drive_DAC(*(dacBuffer + 8*(i-1)+4),2,TRUE);
+                    Drive_DAC(*(dacBuffer + 8*(i-1)+5),0x04,FALSE);
+                    Drive_DAC(*(dacBuffer + 8*(i-1)+6),0x04,TRUE);
+                    Drive_DAC(*(dacBuffer + 8*(i-1)+7),0x10,FALSE);
+                    Drive_DAC(*(dacBuffer + 8*(i-1)+8),0x10,TRUE);
+                    delay_ms(7,CURRENT_FREQ);
 	            }
-                itemCount = 0;
+
+                Drive_DAC(0,1,FALSE);
+                Drive_DAC(0,1,TRUE);
+                Drive_DAC(0,2,FALSE);
+                Drive_DAC(0,2,TRUE);
+                Drive_DAC(0,0x04,FALSE);
+                Drive_DAC(0,0x04,TRUE);
+                Drive_DAC(0,0x10,FALSE);
+                Drive_DAC(0,0x10,TRUE);
+
+
+	            itemCount = 0;
 	        }
 	    }
 
-//            TempDAC_Value = 255;
-//            Drive_DAC(TempDAC_Value,1,FALSE);
-//            Drive_DAC(TempDAC_Value,1,TRUE);
-//            Drive_DAC(TempDAC_Value,2,FALSE);
-//            Drive_DAC(TempDAC_Value,2,TRUE);
-//            Drive_DAC(TempDAC_Value,0x04,FALSE);
-//            Drive_DAC(TempDAC_Value,0x04,TRUE);
-//            Drive_DAC(TempDAC_Value,0x10,FALSE);
-//            Drive_DAC(TempDAC_Value,0x10,TRUE);
-//            TempDAC_Value = 0;
-//            Drive_DAC(TempDAC_Value,1,FALSE);
-//            Drive_DAC(TempDAC_Value,1,TRUE);
-//            Drive_DAC(TempDAC_Value,2,FALSE);
-//            Drive_DAC(TempDAC_Value,2,TRUE);
-//            Drive_DAC(TempDAC_Value,0x04,FALSE);
-//            Drive_DAC(TempDAC_Value,0x04,TRUE);
-//            Drive_DAC(TempDAC_Value,0x10,FALSE);
-//            Drive_DAC(TempDAC_Value,0x10,TRUE);
 
 	}
 }
