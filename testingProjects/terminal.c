@@ -8,6 +8,8 @@
 int readCount = 0;
 char terminalbufferReady;
 int  terminalbuffer;
+unsigned int columnCount;
+unsigned int rowCount;
 
 void terminal_init()
 {
@@ -78,19 +80,35 @@ void EUSCIA0_IRQHandler()
 {
     unsigned int result = EUSCI_A0->RXBUF;
     terminal_transmitChar((char)result);
-    if(result == 91 || result == 44)
+    if(result == 91 && txDataFlag == FALSE)
     {
         terminalbufferReady = TRUE;
+        rowCount = 0;
+        columnCount = 0;
+        txDataFlag = TRUE;
+        return;
+    }
+    if(result == 91 && txDataFlag == TRUE)
+    {
+        terminalbufferReady = TRUE;
+        rowCount++;
+        columnCount = 0;
         return;
     }
 
 
-    if(result<48 || result > 57)
+
+    else if(result == 44 && txDataFlag == TRUE)
+    {
+        terminalbufferReady = TRUE;
+        columnCount++;
+        return;
+    }
+
+    else if(result<48 || result > 57)
     {
         return;
     }
-
-
     terminalbuffer = (terminalbuffer * 10) + (result - 48);
 
 }

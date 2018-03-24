@@ -10,7 +10,7 @@
 
 
 void Drive_DAC(unsigned char level, unsigned int channel, unsigned int toggle);
-int *computeSin();
+//int *computeSin();
 
 
 

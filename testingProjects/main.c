@@ -12,8 +12,9 @@
 #define TRUE 1
 
 volatile unsigned int TempDAC_Value = 0;
-unsigned int itemCount;
-
+unsigned int columnCount;
+unsigned int rowCount;
+char txDataFlag = 0;
 void main(void)
 {
     __disable_irq();
@@ -27,7 +28,6 @@ void main(void)
     NVIC_EnableIRQ(EUSCIA0_IRQn);
     __enable_irq();
     unsigned char dacBuffer[65000];
-
     unsigned int i = 0;
 //	int step;
 //	int *sinePoint;
@@ -35,13 +35,11 @@ void main(void)
 	while(1){
 	    if(terminalbufferReady == TRUE)
 	    {
-	        *(dacBuffer + itemCount) = terminal_receiveInt();
-	        itemCount++;
-	        if(itemCount > 65000)
+	        *(dacBuffer + rowCount*8+columnCount) = terminal_receiveInt();
+	        if(rowCount > 8124)
 	        {
 	            for(i = 1; i < 8124; i ++)
 	            {
-                    Drive_DAC(*(dacBuffer + 8*(i-1)),1,FALSE);
                     Drive_DAC(*(dacBuffer + 8*(i-1)+1),1,FALSE);
                     Drive_DAC(*(dacBuffer + 8*(i-1)+2),1,TRUE);
                     Drive_DAC(*(dacBuffer + 8*(i-1)+3),2,FALSE);
@@ -50,7 +48,6 @@ void main(void)
                     Drive_DAC(*(dacBuffer + 8*(i-1)+6),0x04,TRUE);
                     Drive_DAC(*(dacBuffer + 8*(i-1)+7),0x10,FALSE);
                     Drive_DAC(*(dacBuffer + 8*(i-1)+8),0x10,TRUE);
-                    delay_ms(7,CURRENT_FREQ);
 	            }
 
                 Drive_DAC(0,1,FALSE);
@@ -62,8 +59,7 @@ void main(void)
                 Drive_DAC(0,0x10,FALSE);
                 Drive_DAC(0,0x10,TRUE);
 
-
-	            itemCount = 0;
+                txDataFlag = FALSE;
 	        }
 	    }
 

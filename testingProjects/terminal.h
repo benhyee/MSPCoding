@@ -3,6 +3,9 @@
 
 extern char terminalbufferReady;
 extern int terminalBuffer;
+extern unsigned int columnCount;
+extern unsigned int rowCount;
+extern char txDataFlag;
 void terminal_init();
 void terminal_transmitChar(char character);
 void terminal_transmitWord(char *word);
